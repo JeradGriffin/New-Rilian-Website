@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rilian</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/ca34d044c9.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+    <script type="text/javascript" src="soundcloudPlayer.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app="ngRilian" ng-controller="rilianController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">RILIAN</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="clickMe"><a href="#">Home</a></li>
+            <li class="clickMe"><a href="#music">Music</a></li>
+            <li class="clickMe"><a href="#pictures">Pictures</a></li>
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <div id='stars4'></div>
+    <header class="jumbotron"><h1 id="h1" class="h1Center"><span ng-cloak>{{header}}</span></h1></header>
+
+    <section class="container-fluid blackground" id="music" style="height:400px;">
+      <!-- <div class="status"></div> -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Music</h1>
+        </div>
+      </div>
+      <div class="row m-t-lg m-b-lg">
+        <div class="col-sm-4 escaping songBox" id="escaping">
+          <div class="col-sm-12 col-md-12 col-lg-12 divBox borderWhite well">
+            <div class="" ng-repeat="esc in escaping">
+              <div class="row">
+                <div class="col-sm-12 text-left">
+                  <iframe width="100%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/113837378&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-10 text-left">Genre - {{esc.genre}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-10 text-left">Label - {{esc.label}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 fail songBox">
+          <div class="col-sm-12 col-md-12 col-lg-12 divBox borderWhite well">
+            <div class="" ng-repeat="f in fail">
+              <div class="row">
+                <div class="col-sm-12 text-left">
+                  <iframe width="100%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/263432003&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-10 text-left">Genre - {{f.genre}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-10 text-left">Label - {{f.label}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 losingMyself songBox">
+          <div class="col-sm-12 col-md-12 col-lg-12 divBox borderWhite well">
+            <div class="" ng-repeat="lm in losingMyself">
+              <div class="row">
+                <div class="col-sm-12 text-left">
+                  <iframe width='100%' height='250' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/201169575&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 text-left">Genre - {{lm.genre}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 text-left">Label - {{lm.label}}</div>
+              </div>
+            </div>
+            <div class="col-sm-9">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row fail songBox">
+        <div class="col-sm-12 col-md-12 col-lg-12 divBox borderWhite well">
+          <div class="" ng-repeat="f in fail">
+            <div class="row">
+              <div class="col-sm-10 text-left">Song Title - {{f.song}}</div>
+            </div>
+            <div class="row">
+              <div class="col-sm-10 text-left">Genre - {{f.genre}}</div>
+            </div>
+            <div class="row">
+              <div class="col-sm-10 text-left">Label - {{f.label}}</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+
+      <div class="col-xs-1"></div>
+
+    </section>
+
+
+    <!-- Pictures -->
+    <section class="container-fluid pictureSection m-t-lg" id="pictures">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Pictures</h1>
+        </div>
+      </div>
+      <div class="row picture m-t-lg">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-3 text-center">
+                <img src="images/jsing.jpg" alt="" style="width:341px !important;height:512px !important;border:1px solid black;">
+              </div>
+              <div class="col-sm-3 text-center">
+                <img src="images/jguitarswing.jpg" alt="" style="width:341px !important;height:512px !important;border:1px solid black;">
+              </div>
+              <div class="col-sm-3 text-center">
+                <img src="images/jgtr1.jpg" alt="" style="width:341px !important;height:512px !important;border:1px solid black;">
+              </div>
+              <div class="col-sm-3 text-center">
+                <img src="images/Jerad2gtr1.jpg" alt="" style="width:341px !important;height:512px !important;border:1px solid black;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="m-t-lg" style="height:200px;">
+      <div class="row">
+        <div class="footer_social_links text-center mt75" style="color:white;">
+  				<ul class="footer_social_links_list npl">
+  					<li><a href="https://www.facebook.com/rilianrock" target="_Blank" class="fa fa-facebook fa-6 footer_social_icon m-r-sm" style="color:white;"></a></li>
+  					<li><a href="https://twitter.com/rilianrock" target="_Blank" class="fa fa-twitter fa-6 footer_social_icon m-r-sm" style="color:white;"></a></li>
+  					<li><a href="http://instagram.com/rilianrock" target="_Blank" class="fa fa-instagram fa-6 footer_social_icon m-r-sm" style="color:white;"></a></li>
+  				</ul>
+          <div class="m-t-xs">&copy;2016&nbsp;Rilian&nbsp;</div>
+			</div>
+      </div>
+    </footer>
+
+  </body>
+  <script type="text/javascript" src="practice.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.1/ui-bootstrap-tpls.min.js"></script>
+  <script src="app.js"></script>
+  <script src="rilianController.js"></script>
+  <script src="rilianFactory.js"></script>
+</html>
